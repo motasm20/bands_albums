@@ -41,7 +41,7 @@ class BandController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Band $bands)
+    public function show(Band $band)
     {
         return view('bands.show', compact('band'));
     }

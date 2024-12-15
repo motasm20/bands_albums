@@ -20,9 +20,13 @@
             <label for="founded" class="block">Oprichtingsjaar:</label>
             <input type="number" id="founded" name="founded" min="1900" max="{{ date('Y') }}" required class="w-full border py-1 rounded-lg">
         </div>
+        <div>
+            <label for="active_till" class="block">Actief Tot:</label>
+            <input type="number" id="active_till" name="active_till" min="1900" max="{{ date('Y') }}" class="w-full border py-1 rounded-lg">
+        </div>
 
         <div>
-            <button type="submit" class="w-full bg-blue-500 text-white rounded-lg py-2">Aanmaken</button>
+            <button type="submit" class="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-800">Aanmaken</button>
         </div>
     </form>
 </div>

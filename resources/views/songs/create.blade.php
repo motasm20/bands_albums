@@ -1,3 +1,24 @@
-<div>
-    <!-- I begin to speak only when I am certain what I will say is not better left unsaid. - Cato the Younger -->
+@extends('layouts.app')
+
+@section('content')
+<div class="max-w-md mx-auto mt-10 bg-white p-6 rounded-lg shadow-md">
+    <h1 class="text-xl font-bold mb-4">Nieuwe Song Aanmaken</h1>
+    <form action="{{ route('songs.store') }}" method="POST" class="space-y-4">
+        @csrf
+
+        <div>
+            <label for="title" class="block">Song Titel:</label>
+            <input type="text" id="title" name="title" required class="w-full border py-1 rounded-lg">
+        </div>
+
+        <div>
+            <label for="singer" class="block">Zanger:</label>
+            <input type="text" id="singer" name="singer" required class="w-full border py-1 rounded-lg">
+        </div>
+
+        <div>
+            <button type="submit" class="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-800">Aanmaken</button>
+        </div>
+    </form>
 </div>
+@endsection

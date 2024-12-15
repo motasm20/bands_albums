@@ -50,7 +50,7 @@ class AlbumController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Album $album)
     {
         return view('albums.edit', compact('album'));
     }
