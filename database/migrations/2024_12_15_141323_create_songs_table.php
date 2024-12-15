@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->string('title')->nullable(false);
             $table->string('singer')->nullable(false);
-            
             $table->timestamps();
         });
     }
