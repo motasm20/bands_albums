@@ -1,18 +1,19 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Band;
+
+use App\Models\Album;
 use Illuminate\Http\Request;
 
-class BandController extends Controller
+class AlbumController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $bands = Band::all();  // Haal alle bands op
-        return view('bands.index', compact('bands'));
+        $albums = Album::all();  // Haal alle albums op
+        return view('albums.index', compact('albums'));
     }
 
     /**
@@ -20,7 +21,7 @@ class BandController extends Controller
      */
     public function create()
     {
-        return view('bands.create');
+        return view('albums.create');
     }
 
     /**
@@ -30,51 +31,51 @@ class BandController extends Controller
     {
         $request->validate([
             'name' => 'required|string',
+            'release_year' => 'required|integer',
             'genre' => 'required|string',
-            'founded' => 'required|integer',
         ]);
-    
-        Band::create($request->all());  // Voeg een nieuwe band toe
-        return redirect()->route('bands.index');
+
+        Album::create($request->all());  // Voeg een nieuw album toe
+        return redirect()->route('albums.index');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Band $bands)
+    public function show(Album $album)
     {
-        return view('bands.show', compact('band'));
+        return view('albums.show', compact('album'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Band $band)
+    public function edit(string $id)
     {
-        return view('bands.edit', compact('band'));
+        return view('albums.edit', compact('album'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Band $band)
+    public function update(Request $request, Album $album)
     {
         $request->validate([
             'name' => 'required|string',
+            'release_year' => 'required|integer',
             'genre' => 'required|string',
-            'founded' => 'required|integer',
         ]);
 
-        $band->update($request->all());  // Werk de gegevens van de band bij
-        return redirect()->route('bands.index');
+        $album->update($request->all());  // Werk het album bij
+        return redirect()->route('albums.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Band $band)
+    public function destroy(Album $album)
     {
-        $band->delete();  // Verwijder de band
-        return redirect()->route('bands.index');
+        $album->delete();  // Verwijder het album
+        return redirect()->route('albums.index');
     }
 }
