@@ -5,6 +5,8 @@
 @section('content')
 <div class="max-w-7xl mx-auto py-6">
     <h1 class="text-3xl font-bold mb-6">Album Details</h1>
+    
+    
 
     <!-- Album Details Section -->
     <div class="bg-white p-6 shadow-md rounded-md">
@@ -24,7 +26,12 @@
                     Verwijderen
                 </button>
             </form>
+            <!-- Terug knop -->
+            <div class="mt-6">
+                <a href="{{ route('albums.index') }}" class="mt-60 bg-blue-500 text-white p-2 rounded hover:bg-blue-600">Terug naar lijst</a>
+            </div>
         </div>
+        
     </div>
 </div>
 @endsection

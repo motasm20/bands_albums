@@ -7,7 +7,7 @@
     <h1 class="text-3xl font-bold mb-6">Lijst van Songs</h1>
 
     <!-- Nieuwe song toevoegen -->
-    <a href="{{ route('songs.create') }}" class="bg-blue-500 text-white p-2 rounded hover:bg-blue-600">Nieuwe Song Toevoegen</a>
+    <a href="{{ route('songs.create') }}" class="bg-blue-500 text-white p-2 rounded hover:bg-blue-600">Nieuwe Song Aanmaken</a>
     
     <table class="w-full mt-4 table-auto">
         <thead>

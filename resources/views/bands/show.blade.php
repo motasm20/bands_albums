@@ -25,6 +25,10 @@
                     Verwijderen
                 </button>
             </form>
+            <!-- Terug knop -->
+            <div class="mt-6">
+                <a href="{{ route('bands.index') }}" class="mt-60 bg-blue-500 text-white p-2 rounded hover:bg-blue-600">Terug naar lijst</a>
+            </div>
         </div>
     </div>
 </div>

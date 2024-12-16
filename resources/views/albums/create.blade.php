@@ -1,6 +1,12 @@
 @extends('layouts.app')
 
+@section('title', 'Nieuw Album')
+
 @section('content')
+<!-- Terug knop -->
+<div class="mt-4">
+    <a href="{{ route('albums.index') }}" class="bg-blue-500 text-white px-4 py-2 rounded shadow hover:bg-blue-600">Terug naar lijst</a>
+</div>
 <div class="max-w-md mx-auto mt-10 bg-white p-6 rounded-lg shadow-md">
     <h1 class="text-xl font-bold mb-4">Nieuw Album Aanmaken</h1>
     <form action="{{ route('albums.store') }}" method="POST" class="space-y-4">

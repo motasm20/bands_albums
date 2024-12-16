@@ -6,7 +6,7 @@
 <div class="max-w-7xl mx-auto py-6 ">
     <h1 class="text-3xl font-bold mb-6">Lijst van Albums</h1>
     <!-- Nieuw album toevoegen -->
-    <a href="{{ route('albums.create') }}" class="bg-blue-500 text-white p-2 rounded hover:bg-blue-600">Nieuw Album Toevoegen</a>
+    <a href="{{ route('albums.create') }}" class="bg-blue-500 text-white p-2 rounded hover:bg-blue-600">Nieuw Album Aanmaken</a>
     <table class="w-full mt-4 table-auto">
         <thead>
             <tr class="bg-gray-100">

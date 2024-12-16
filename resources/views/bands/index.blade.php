@@ -6,7 +6,7 @@
 <div class="max-w-7xl mx-auto py-6">
     <h1 class="text-3xl font-bold mb-6">Lijst van Bands</h1>
     <!-- Nieuwe band toevoegen -->
-    <a href="{{ route('bands.create') }}" class="bg-blue-500 text-white p-2 rounded hover:bg-blue-600">Nieuwe Band Toevoegen</a>
+    <a href="{{ route('bands.create') }}" class="bg-blue-500 text-white p-2 rounded hover:bg-blue-600">Nieuwe Band Aanmaken</a>
     
     <table class="w-full mt-4 table-auto">
         <thead>
