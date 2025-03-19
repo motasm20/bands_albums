@@ -27,15 +27,17 @@
                 class="w-full border border-gray-300 rounded px-3 py-2">
         </div>
 
-        <!-- Album -->
-        <label for="albums">Kies albums:</label>
-        <select name="albums[]" multiple class="w-full border border-gray-300 rounded px-3 py-2 mb-4">
-            @foreach($albums as $album)
-                <option value="{{ $album->id }}" {{ $song->albums->contains($album->id) ? 'selected' : '' }}>
-                    {{ $album->name }}
-                </option>
-            @endforeach
-        </select>
+        <!-- Albums -->
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+        @foreach($albums as $album)
+            <label class="flex items-center space-x-2 bg-gray-100 p-3 rounded-md shadow-sm cursor-pointer transition duration-200 ease-in-out hover:bg-gray-200">
+                <input type="checkbox" name="albums[]" value="{{ $album->id }}" 
+                    class="w-5 h-5 text-blue-500 rounded border-gray-300 focus:ring-blue-400"
+                    {{ $song->albums->contains($album->id) ? 'checked' : '' }}>
+                <span class="text-gray-700 font-medium">{{ $album->name }}</span>
+            </label>
+        @endforeach
+        </div>
 
         <!-- Opslaan Knop -->
         <div class="text-right">

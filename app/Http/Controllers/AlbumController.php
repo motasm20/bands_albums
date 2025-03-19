@@ -64,14 +64,14 @@ class AlbumController extends Controller
      */
     public function edit(Album $album)
     {
-        $songs = Song::all(); // Haal alle songs op
-        return view('albums.edit', compact('album', 'songs'));
+        $bands = Band::all(); // Haal alle Bands op
+        return view('albums.edit', compact('album', 'bands'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Album $album, Band $band, Song $song)
+    public function update(Request $request, Album $album, Band $band)
     {
 
         $request->validate([
@@ -80,8 +80,8 @@ class AlbumController extends Controller
             'genre' => 'required|string',
         ]);
 
-        $album->songs()->sync($request->songs);
-        return redirect()->route('albums.index');
+        $album->bands()->sync($request->bands);  // Synchroniseer de bands
+        return redirect()->route('albums.index', compact('album', 'band'));
     }
 
     /**
