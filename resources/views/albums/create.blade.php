@@ -26,6 +26,17 @@
             <label for="times_sold" class="block">Aantal Verkocht:</label>
             <input type="number" id="times_sold" name="times_sold" min="0" required class="w-full border py-1 rounded-lg">
         </div>
+        
+        <div>
+            <label for="band_id" class="block">Band:</label>
+
+            <select id="band_id" name="band_id" required class="w-full border py-1 rounded-lg">
+            <option value="">-- Kies een band --</option>
+                @foreach ($bands as $band)
+                    <option value="{{ $band->id }}">{{ $band->name }}</option>
+                @endforeach
+            </select>
+        </div>
 
         <div>
             <button type="submit" class="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-800">Aanmaken</button>

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Album;
+use App\Models\Band;
+use App\Models\Song;
 use Illuminate\Http\Request;
 
 class AlbumController extends Controller
@@ -21,7 +23,9 @@ class AlbumController extends Controller
      */
     public function create()
     {
-        return view('albums.create');
+        $bands = Band::all(); // Haal alle bands op
+    
+        return view('albums.create', compact('bands'));
     }
 
     /**
@@ -31,11 +35,18 @@ class AlbumController extends Controller
     {
         $request->validate([
             'name' => 'required|string',
-            'release_year' => 'required|integer',
-            'genre' => 'required|string',
+            'year' => 'nullable|integer',
+            'times_sold' => 'nullable|integer',
+            'band_id' => 'required|exists:bands,id',
         ]);
-
-        Album::create($request->all());  // Voeg een nieuw album toe
+    
+        Album::create([
+            'name' => $request->name,
+            'year' => $request->year,
+            'times_sold' => $request->times_sold,
+            'band_id' => $request->band_id,
+        ]);  // Voeg een nieuw album toe
+        
         return redirect()->route('albums.index');
     }
 
