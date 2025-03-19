@@ -1,7 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Song;
+use App\Models\Band;
+use App\Models\Album;
+
 use Illuminate\Http\Request;
 
 
@@ -21,7 +25,8 @@ class SongController extends Controller
      */
     public function create()
     {
-        return view('songs.create');
+        $albums = Album::all(); // Haal alle albums op
+        return view('songs.create', compact('albums'));
     }
 
     /**
@@ -52,7 +57,8 @@ class SongController extends Controller
      */
     public function edit(Song $song)
     {
-        return view('songs.edit', compact('song'));
+        $albums = Album::all(); // Haal alle albums op
+        return view('songs.edit', compact('song', 'albums'));
     }
 
     /**
@@ -65,9 +71,9 @@ class SongController extends Controller
             'singer' => 'required|string',
             
         ]);
-
+        $song->albums()->sync($request->albums); // Sync de geselecteerde albums
         $song->update($request->all());  // Werk de song bij
-        return redirect()->route('songs.index');
+        return redirect()->route('songs.index', $song);
     }
 
     /**

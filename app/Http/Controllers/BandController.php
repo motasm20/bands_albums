@@ -1,7 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Band;
+use App\Models\Album;
+use App\Models\Song;
+
 use Illuminate\Http\Request;
 
 class BandController extends Controller
@@ -51,7 +55,8 @@ class BandController extends Controller
      */
     public function edit(Band $band)
     {
-        return view('bands.edit', compact('band'));
+        $albums = Album::all(); // Haal alle albums op
+        return view('bands.edit', compact('band', 'albums'));
     }
 
     /**

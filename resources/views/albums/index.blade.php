@@ -13,6 +13,7 @@
                 <th class="border py-2">Album naam</th>
                 <th class="border py-2">Jaar van Uitgave</th>
                 <th class="border py-2">Verkocht</th>
+                <th class="border py-2">Band</th>
                 <th class="border py-2">Acties</th>
             </tr>
         </thead>
@@ -22,6 +23,7 @@
                     <td class="border  py-2">{{ $album->name }}</td>
                     <td class="border  py-2">{{ $album->year }}</td>
                     <td class="border  py-2">{{ $album->times_sold }}</td>
+                    <td class="border  py-2">{{ $album->band->name }}</td>
                     <td class="border  py-2">
                         <!-- Details knop -->
                         <a href="{{ route('albums.show', $album->id) }}" 

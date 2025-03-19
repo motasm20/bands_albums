@@ -55,7 +55,8 @@ class AlbumController extends Controller
      */
     public function show(Album $album)
     {
-        return view('albums.show', compact('album'));
+        $songs = $album->songs;  // Haal alle songs van het album op
+        return view('albums.show', compact('album', 'songs'));
     }
 
     /**
@@ -63,21 +64,23 @@ class AlbumController extends Controller
      */
     public function edit(Album $album)
     {
-        return view('albums.edit', compact('album'));
+        $songs = Song::all(); // Haal alle songs op
+        return view('albums.edit', compact('album', 'songs'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Album $album)
+    public function update(Request $request, Album $album, Band $band, Song $song)
     {
+
         $request->validate([
             'name' => 'required|string',
             'release_year' => 'required|integer',
             'genre' => 'required|string',
         ]);
 
-        $album->update($request->all());  // Werk het album bij
+        $album->songs()->sync($request->songs);
         return redirect()->route('albums.index');
     }
 

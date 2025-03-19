@@ -14,6 +14,7 @@
             <tr class="bg-gray-100">
                 <th class="border py-2">Naam</th>
                 <th class="border py-2">Zanger</th>
+                <th class="border py-2">Album</th>
                 <th class="border py-2">Acties</th>
             </tr>
         </thead>
@@ -22,6 +23,12 @@
                 <tr>
                     <td class="border py-2">{{ $song->title }}</td>
                     <td class="border py-2">{{ $song->singer }}</td>
+                    <td class="border py-2">
+                        @foreach($song->albums as $album)
+                            <p>{{ $album->name }}</p>
+                        @endforeach
+                    </td>
+
                     <td class="border py-2">
                         <!-- Details knop -->
                         <a href="{{ route('songs.show', $song->id) }}" 

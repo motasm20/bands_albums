@@ -11,6 +11,19 @@
         <h2 class="text-xl font-semibold mb-4">Naam: {{ $band->name }}</h2>
         <p class="text-lg mb-4"><strong>Genre:</strong> {{ $band->genre }}</p>
         <p class="text-lg mb-4"><strong>Oprichtingsjaar:</strong> {{ $band->founded }}</p>
+        <div class="bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">Albums in dit Band:</h2>
+            <ul class="space-y-2">
+                @foreach($band->albums as $album)
+                    <li class="bg-gray-100 p-3 rounded-md shadow-sm transition duration-200 ease-in-out hover:bg-gray-200 hover:shadow-md">
+                        <a href="{{ route('albums.show', $album->id) }}" class="block w-full h-full">
+                            📀 {{ $album->name }}
+                        </a>
+                    </li>
+                @endforeach
+            </ul>
+        </div>
+
         <p class="text-lg mb-4"><strong>Actief Tot:</strong> {{ $band->active_till ?? 'N/A' }}</p>
 
         <!-- Buttons for Edit or Delete -->

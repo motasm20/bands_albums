@@ -10,15 +10,14 @@
     <div class="bg-white p-6 shadow-md rounded-md">
         <h2 class="text-xl font-semibold mb-4">Titel: {{ $song->title }}</h2>
         <p class="text-lg mb-4"><strong>Zanger:</strong> {{ $song->singer }}</p>
-        
-        <!-- Additional Information (if available) -->
-        @if($song->album)
-            <p class="text-lg mb-4"><strong>Album:</strong> {{ $song->album->name }}</p>
-        @endif
 
-        @if($song->genre)
-            <p class="text-lg mb-4"><strong>Genre:</strong> {{ $song->genre }}</p>
-        @endif
+        <p class="text-lg mb-4"><strong>Album:</strong>
+            @foreach($song->albums as $album)
+                {{ $album->name }}
+            @endforeach
+        </p>
+        
+        
 
         <!-- Buttons for Edit or Delete -->
         <div class="mt-6">

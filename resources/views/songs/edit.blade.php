@@ -27,6 +27,16 @@
                 class="w-full border border-gray-300 rounded px-3 py-2">
         </div>
 
+        <!-- Album -->
+        <label for="albums">Kies albums:</label>
+        <select name="albums[]" multiple class="w-full border border-gray-300 rounded px-3 py-2 mb-4">
+            @foreach($albums as $album)
+                <option value="{{ $album->id }}" {{ $song->albums->contains($album->id) ? 'selected' : '' }}>
+                    {{ $album->name }}
+                </option>
+            @endforeach
+        </select>
+
         <!-- Opslaan Knop -->
         <div class="text-right">
             <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded shadow hover:bg-blue-600">

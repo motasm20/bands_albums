@@ -15,6 +15,7 @@
                 <th class="border py-2">Genre</th>
                 <th class="border py-2">Oprichtingsjaar</th>
                 <th class="border py-2">Actief Tot</th>
+                <th class="border py-2">Album</th>
                 <th class="border py-2">Acties</th>
             </tr>
         </thead>
@@ -25,6 +26,11 @@
                     <td class="border py-2">{{ $band->genre }}</td>
                     <td class="border py-2">{{ $band->founded }}</td>
                     <td class="border py-2">{{ $band->active_till ?? 'N/A' }}</td>
+                    <td class="border py-2">
+                        @foreach($band->albums as $album)
+                            <p>{{ $album->name }}</p>
+                        @endforeach
+                    </td>
                     <td class="border py-2">
                         <!-- Details knop -->
                         <a href="{{ route('bands.show', $band->id) }}" 

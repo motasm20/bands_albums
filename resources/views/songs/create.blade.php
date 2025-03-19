@@ -21,6 +21,17 @@
             <input type="text" id="singer" name="singer" required class="w-full border py-1 rounded-lg">
         </div>
 
+        <!-- Album -->
+        <label for="albums">Kies albums:</label>
+        <select name="albums[]" multiple class="w-full border py-1 rounded-lg mb-4">
+            @foreach($albums as $album)
+                <option value="{{ $album->id }}" {{ $albums->contains($album->id) ? 'selected' : '' }}>
+                    {{ $album->name }}
+                </option>
+            @endforeach
+        </select>
+
+
         <div>
             <button type="submit" class="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-800">Aanmaken</button>
         </div>
